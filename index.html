@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Before & After</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="root">
+    <img src="images/before.jpg" decoding="async" alt="before">
+    <img src="images/after.jpg" decoding="async" alt="after">
+  </div>
+  <div class="author">
+   Марио <a href="https://yandex.ru/images/search?text=марио&from=tabbar" target="_blank">по картинкам из инета</a><br>
+   <a href="mario_big.jpg" target="_blank" style="margin-left: 39px;">(Картинка крупнее)</a><br><br>
+   Код страницы:
+    <a href="https://github.com/SanichKotikov" target="_blank">SanichKotikov</a>
+  </div>
+  <script type="module">
+    import plugin from './plugin.js';
+    plugin(document.getElementById('root'));
+  </script>
+</body>
+</html>
