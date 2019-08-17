@@ -45,7 +45,7 @@ body {
   left: 50%;
   display: flex;
   justify-content: center;
-  width: 20px;
+  width: 30px;
   height: 100%;
   background: transparent;
   transform: translateX(-50%);
@@ -56,9 +56,10 @@ body {
   content: '';
   width: 2px;
   height: 100%;
-  background: black;
+  background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
 }
+
 
 a, a:hover{
   border:none;

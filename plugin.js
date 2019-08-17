@@ -1,5 +1,9 @@
 const START_POSITION = 50;
 
+function isTouch() {
+  return 'ontouchstart' in window;
+}
+
 function hasNotImage(images) {
   return Boolean(
     images
@@ -43,18 +47,24 @@ function plugin(root) {
 
   setPos(START_POSITION);
 
-  control.addEventListener('mousedown', function(event) {
+  const touch = isTouch();
+  const startEvent = touch ? 'touchstart' : 'mousedown';
+  const moveEvent = touch ? 'touchmove' : 'mousemove';
+  const endEvent = touch ? 'touchend' : 'mouseup';
+
+  control.addEventListener(startEvent, function(event) {
     event.preventDefault();
     moving = true;
   });
 
-  root.addEventListener('mousemove', function(event) {
+  root.addEventListener(moveEvent, function(event) {
     if (!moving) return;
     event.preventDefault();
-    setPos(event.clientX * 100 / window.innerWidth);
+    const x = !!event.touches ? event.touches[0].clientX : event.clientX;
+    setPos(x * 100 / window.innerWidth);
   });
 
-  root.addEventListener('mouseup', function() {
+  root.addEventListener(endEvent, function() {
     moving = false;
   });
 }
